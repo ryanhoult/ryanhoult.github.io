@@ -89,6 +89,22 @@ section{padding-block:clamp(56px,8vw,96px);border-bottom:1px solid var(--line)}
 .theme p{color:var(--muted)}
 @media (max-width:720px){.themes{grid-template-columns:1fr}}
 
+.project{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:start}
+.project ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.project li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;padding-top:12px;border-top:1px solid var(--line)}
+.project li b{font:600 .78rem/1.5 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--accent)}
+.partners{margin-top:18px;color:var(--muted);font-size:.97rem}
+.phd{margin-top:24px;background:var(--surface);border:1px solid var(--line);padding:20px 22px;display:grid;gap:8px}
+.phd p{font-size:.97rem}
+.phd .addr{font-family:var(--mono);font-size:.85rem;word-break:break-all}
+.maps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.maps figure{margin:0;display:flex;flex-direction:column;gap:6px}
+.maps figure a{display:block;cursor:zoom-in;background:#fff;border:1px solid var(--line)}
+.maps img{display:block;width:100%;height:auto}
+.maps figcaption{font-size:.82rem;color:var(--muted);line-height:1.4}
+.source{grid-column:1/-1;font-size:.8rem;color:var(--muted);line-height:1.5}
+@media (max-width:860px){.project{grid-template-columns:1fr}}
+@media (max-width:520px){.maps{grid-template-columns:1fr}.project li{grid-template-columns:1fr;gap:2px}}
 /* lab programs */
 .programs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .program{display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:3px solid var(--ink)}
@@ -97,15 +113,16 @@ section{padding-block:clamp(56px,8vw,96px);border-bottom:1px solid var(--line)}
 @media (max-width:900px){.programs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.programs{grid-template-columns:1fr}}
 
-.gallery{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:180px;gap:10px;margin-top:44px}
-.gallery figure{margin:0;position:relative;overflow:hidden;background:var(--line)}
-.gallery img{width:100%;height:100%;object-fit:cover;display:block}
-.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;font:500 .78rem/1.35 var(--body);color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.72))}
-.g1{grid-column:span 2;grid-row:span 3}.g2{grid-column:span 4;grid-row:span 2}.g3{grid-column:span 2;grid-row:span 1}.g4{grid-column:span 2;grid-row:span 1}
-.g5{grid-column:span 3;grid-row:span 2}.g6{grid-column:span 3;grid-row:span 2}
-@media (max-width:760px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px}
- .g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 1;grid-row:span 2}.g2{grid-column:span 2}}
-
+.gallery{columns:3 300px;column-gap:12px;margin-top:44px}
+.gallery figure{margin:0 0 12px;break-inside:avoid;position:relative;background:var(--line)}
+.gallery a{display:block;cursor:zoom-in}
+.gallery img{width:100%;height:auto;display:block}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;font:500 .82rem/1.35 var(--body);color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.72));pointer-events:none}
+.lightbox{border:0;padding:0;background:transparent;max-width:min(96vw,1600px);max-height:94vh}
+.lightbox::backdrop{background:rgba(8,10,12,.9)}
+.lightbox img{display:block;max-width:min(96vw,1600px);max-height:86vh;width:auto;height:auto;margin:0 auto}
+.lightbox p{color:#e6e9ec;font:500 .9rem/1.4 var(--body);text-align:center;padding:10px 12px 0}
+.lightbox button{position:fixed;top:max(14px,env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));background:var(--accent);color:var(--accent-ink);border:0;font:600 .8rem/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;padding:10px 14px;cursor:pointer}
 .instr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:44px}
 .instr div{display:flex;flex-direction:column;gap:6px}
 .instr p{color:var(--muted);font-size:.97rem}
@@ -161,7 +178,7 @@ footer{padding-block:28px;color:var(--muted);font:400 .82rem/1.5 var(--mono)}
 <header><div class="wrap">
   <a class="brand" href="#top">Ryan Hoult</a>
   <nav aria-label="Sections">
-    <a href="#research">Research</a><a href="#lab">Laboratory</a><a href="#videos">Videos</a>
+    <a href="#research">Research</a><a href="#hunter">Projects</a><a href="#lab">Laboratory</a><a href="#videos">Videos</a>
     <a href="#publications">Publications</a><a href="#teaching">Teaching</a><a href="#contact">Contact</a>
   </nav>
 </div></header>
@@ -202,6 +219,32 @@ footer{padding-block:28px;color:var(--muted);font:400 .82rem/1.5 var(--mono)}
   </div>
 </div></section>
 
+<section id="hunter"><div class="wrap">
+  <div class="head"><span class="tag">Current project · Disaster Ready Fund · 2027–2030</span><h2>Earthquake Ready Hunter</h2></div>
+  <div class="project">
+    <div>
+      <p>The 1989 Newcastle earthquake remains one of Australia's most damaging natural disasters, and much of the Hunter's building stock predates modern seismic design. Earthquake Ready Hunter, funded through the Australian Government's Disaster Ready Fund (Round 4), will assess and reduce earthquake risk across the Greater Hunter Region over three years.</p>
+      <ul>
+        <li><b>Map the hazard</b><span>Detailed seismic hazard maps for the Hunter region.</span></li>
+        <li><b>Find the vulnerable</b><span>A GIS-based building vulnerability map to support council asset management.</span></li>
+        <li><b>Test real buildings</b><span>Large-scale laboratory tests on unreinforced masonry and reinforced concrete walls.</span></li>
+        <li><b>Guide retrofits</b><span>Practical, cost-effective strengthening guidance for councils, engineers and certifiers.</span></li>
+      </ul>
+      <p class="partners">Led by the University of Newcastle with Swinburne University of Technology, Geoscience Australia and the Hunter Joint Organisation.</p>
+      <div class="phd">
+        <span class="tag">PhD opportunity</span>
+        <p>A funded PhD position on this project starts in mid-2027. We are currently seeking domestic applicants (Australian citizens and permanent residents). To find out more, contact:</p>
+        <p class="addr"><a href="mailto:ryan.hoult@newcastle.edu.au">ryan.hoult@newcastle.edu.au</a> (Dr Ryan Hoult)<br><a href="mailto:mark.masia@newcastle.edu.au">mark.masia@newcastle.edu.au</a> (Prof. Mark Masia)</p>
+      </div>
+    </div>
+    <div class="maps">
+      <figure><a href="img/hunter-hazard.jpg"><img src="img/hunter-hazard.jpg" alt="Map of Newcastle and Lake Macquarie showing earthquake hazard on soil, highest along the Hunter River estuary and coastal sands" loading="lazy"></a><figcaption>Earthquake hazard on soil (10% chance of exceedance in 50 years)</figcaption></figure>
+      <figure><a href="img/hunter-risk.jpg"><img src="img/hunter-risk.jpg" alt="Map of Newcastle and Lake Macquarie showing estimated annual earthquake loss by suburb" loading="lazy"></a><figcaption>Estimated annual earthquake loss by suburb</figcaption></figure>
+      <p class="source">Maps: Jones, T., Dhu, T., Fulford, G., Corby, N. &amp; Sinadinovski, C. (2002). <a href="https://pid.geoscience.gov.au/dataset/ga/40255" target="_blank" rel="noopener"><i>Earthquake Risk in Newcastle and Lake Macquarie</i></a>. Geoscience Australia Record 2002/15. © Commonwealth of Australia (Geoscience Australia), <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.</p>
+    </div>
+  </div>
+</div></section>
+
 <section id="lab"><div class="wrap">
   <div class="head"><span class="tag">Laboratory</span><h2>Large-scale test programs</h2>
   <p>I have designed and led test programs in four laboratories across Europe and Australia, from quasi-static reaction-frame tests to one of Europe's largest shake tables.</p></div>
@@ -213,12 +256,12 @@ footer{padding-block:28px;color:var(--muted);font:400 .82rem/1.5 var(--mono)}
   </div>
 
   <div class="gallery">
-    <figure class="g1"><img src="img/lnec-team-1400.jpg" srcset="img/lnec-team-800.jpg 600w, img/lnec-team-1400.jpg 1050w, img/lnec-team-2200.jpg 1536w" sizes="(max-width:760px) 100vw, 60vw" alt="Research team in front of a tall U-shaped wall specimen on the LNEC shake table" loading="lazy"><figcaption>ALL4wALL team after the shake-table tests, LNEC, Lisbon</figcaption></figure>
-    <figure class="g2"><img src="img/uclouvain-rig-aerial-1400.jpg" srcset="img/uclouvain-rig-aerial-800.jpg 800w, img/uclouvain-rig-aerial-1400.jpg 1400w, img/uclouvain-rig-aerial-2200.jpg 2200w" sizes="(max-width:760px) 100vw, 60vw" alt="Aerial view of a U-shaped wall in an orange reaction frame with vertical and horizontal actuators" loading="lazy"><figcaption>U-shaped wall in the torsion–flexure test rig, UCLouvain</figcaption></figure>
-    <figure class="g3"><img src="img/uclouvain-control-1400.jpg" srcset="img/uclouvain-control-800.jpg 800w, img/uclouvain-control-1400.jpg 1400w, img/uclouvain-control-2200.jpg 1920w" sizes="(max-width:760px) 100vw, 60vw" alt="Ryan Hoult at the control computer during a wall test" loading="lazy"><figcaption>Running a test from the control station</figcaption></figure>
-    <figure class="g4"><img src="img/uclouvain-almeida-1400.jpg" srcset="img/uclouvain-almeida-800.jpg 600w, img/uclouvain-almeida-1400.jpg 1050w, img/uclouvain-almeida-2200.jpg 1368w" sizes="(max-width:760px) 100vw, 60vw" alt="Ryan Hoult and João Almeida in front of a tested wall specimen" loading="lazy" style="object-position:50% 35%"><figcaption>With Prof. João Almeida, UCLouvain</figcaption></figure>
-    <figure class="g5"><img src="img/uclouvain-team-1400.jpg" srcset="img/uclouvain-team-800.jpg 800w, img/uclouvain-team-1400.jpg 1400w, img/uclouvain-team-2200.jpg 1920w" sizes="(max-width:760px) 100vw, 60vw" alt="The UCLouvain test team standing in front of the test rig" loading="lazy"><figcaption>The UCLouvain structures team</figcaption></figure>
-    <figure class="g6"><img src="img/uon-casting-1400.jpg" srcset="img/uon-casting-800.jpg 800w, img/uon-casting-1400.jpg 1400w, img/uon-casting-2200.jpg 2200w" sizes="(max-width:760px) 100vw, 60vw" alt="Casting concrete into a wall specimen formwork in the Newcastle laboratory" loading="lazy"><figcaption>Casting wall specimen RW3, University of Newcastle</figcaption></figure>
+    <figure><a href="img/lnec-team-2200.jpg"><img src="img/lnec-team-1400.jpg" srcset="img/lnec-team-800.jpg 600w, img/lnec-team-1400.jpg 1050w, img/lnec-team-2200.jpg 1536w" sizes="(max-width:700px) 100vw, 380px" alt="Research team in front of a tall U-shaped wall specimen on the LNEC shake table" loading="lazy"></a><figcaption>ALL4wALL team after the shake-table tests, LNEC, Lisbon</figcaption></figure>
+    <figure><a href="img/uclouvain-team-2200.jpg"><img src="img/uclouvain-team-1400.jpg" srcset="img/uclouvain-team-800.jpg 800w, img/uclouvain-team-1400.jpg 1400w, img/uclouvain-team-2200.jpg 1920w" sizes="(max-width:700px) 100vw, 380px" alt="The UCLouvain test team standing in front of the test rig" loading="lazy"></a><figcaption>The UCLouvain structures team</figcaption></figure>
+    <figure><a href="img/uclouvain-almeida-2200.jpg"><img src="img/uclouvain-almeida-1400.jpg" srcset="img/uclouvain-almeida-800.jpg 600w, img/uclouvain-almeida-1400.jpg 1050w, img/uclouvain-almeida-2200.jpg 1368w" sizes="(max-width:700px) 100vw, 380px" alt="Ryan Hoult and João Almeida in front of a tested wall specimen" loading="lazy"></a><figcaption>With Prof. João Almeida, UCLouvain</figcaption></figure>
+    <figure><a href="img/uclouvain-control-2200.jpg"><img src="img/uclouvain-control-1400.jpg" srcset="img/uclouvain-control-800.jpg 800w, img/uclouvain-control-1400.jpg 1400w, img/uclouvain-control-2200.jpg 1920w" sizes="(max-width:700px) 100vw, 380px" alt="Ryan Hoult at the control computer during a wall test" loading="lazy"></a><figcaption>Running a test from the control station</figcaption></figure>
+    <figure><a href="img/uclouvain-rig-aerial-2200.jpg"><img src="img/uclouvain-rig-aerial-1400.jpg" srcset="img/uclouvain-rig-aerial-800.jpg 800w, img/uclouvain-rig-aerial-1400.jpg 1400w, img/uclouvain-rig-aerial-2200.jpg 2200w" sizes="(max-width:700px) 100vw, 380px" alt="Aerial view of a U-shaped wall in an orange reaction frame with vertical and horizontal actuators" loading="lazy"></a><figcaption>U-shaped wall in the torsion–flexure test rig, UCLouvain</figcaption></figure>
+    <figure><a href="img/uon-casting-2200.jpg"><img src="img/uon-casting-1400.jpg" srcset="img/uon-casting-800.jpg 800w, img/uon-casting-1400.jpg 1400w, img/uon-casting-2200.jpg 2200w" sizes="(max-width:700px) 100vw, 380px" alt="Casting concrete into a wall specimen formwork in the Newcastle laboratory" loading="lazy"></a><figcaption>Casting wall specimen RW3, University of Newcastle</figcaption></figure>
   </div>
 
   <div class="instr">
@@ -288,6 +331,15 @@ footer{padding-block:28px;color:var(--muted);font:400 .82rem/1.5 var(--mono)}
   </div>
 </div></section>
 </main>
+<dialog class="lightbox" id="lightbox" aria-label="Photo"><button type="button" id="lb-close">Close</button><img id="lb-img" alt=""><p id="lb-cap"></p></dialog>
+<script>
+(function(){var d=document.getElementById('lightbox');if(!d||!d.showModal)return;
+var im=document.getElementById('lb-img'),cap=document.getElementById('lb-cap');
+document.querySelectorAll('.gallery a, .maps figure a').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();
+var f=a.closest('figure');im.src=a.getAttribute('href');im.alt=a.querySelector('img').alt;var fc=f.querySelector('figcaption');cap.textContent=fc?fc.textContent:'';d.showModal();});});
+document.getElementById('lb-close').addEventListener('click',function(){d.close();});
+d.addEventListener('click',function(e){if(e.target===d)d.close();});})();
+</script>
 <footer><div class="wrap">© 2026 Ryan Hoult</div></footer>
 
 </body>
